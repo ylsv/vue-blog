@@ -26,8 +26,18 @@ export default {
     filteredBlogs(){
       return this.blogs.filter(blog => blog.title.includes(this.search))
     }
+  },
+  filters: {
+    touppercase: val => val.toUpperCase(),
+    snippet: val => `${val.slice(0, 100)}...`
+  },
+  directives: {
+    rainbow: {
+      bind(el) {
+        el.style.color = `#${Math.random().toString().slice(2,8)}`
+      }
+    }
   }
-
 }
 </script>
 
