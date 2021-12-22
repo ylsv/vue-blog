@@ -1,8 +1,8 @@
 <template>
   <nav>
     <ul>
-      <li><router-link exact to='/'>Blog</router-link></li>
-      <li><router-link exact to='/add'>Add a New Blog</router-link></li>
+      <li><router-link exact to='/'>All Posts</router-link></li>
+      <li><router-link exact to='/add'>Add a New Post</router-link></li>
     </ul>
   </nav>
 </template>

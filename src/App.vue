@@ -17,6 +17,9 @@ export default {
 <style>
 body {
   margin: 0;
-  font-family: 'Arial';
+  box-sizing: border-box;
+}
+body, input, button, select {
+  font-family: 'Noto Sans', sans-serif;
 }
 </style>

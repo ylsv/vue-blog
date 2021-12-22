@@ -1,7 +1,7 @@
 export default {
   computed: {
-    filteredBlogs(){
-      return this.blogs.filter(blog => blog.title.includes(this.search))
+    filteredPosts(){
+      return this.posts.filter(post => post.title.toLowerCase().includes(this.search.toLowerCase()))
     }
   }
 }

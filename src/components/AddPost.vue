@@ -1,50 +1,50 @@
 <template>
-  <div id="add-blog">
-    <h2>Add a New Blog Post</h2>
+  <div id="add-post">
+    <h2>Add a New Post</h2>
     <form v-if="!submitted">
-      <label for="title">Blog Title:</label>
-      <input type="text" id="title" v-model.lazy="blog.title" required>
-      <label for="blog-content">Blog Content:</label>
-      <textarea type="text" id="blog-content" v-model.lazy="blog.content"></textarea>
+      <label for="title">Post Title:</label>
+      <input type="text" id="title" v-model.lazy="post.title" required>
+      <label for="post-content">Post Content:</label>
+      <textarea type="text" id="post-content" v-model.lazy="post.content"></textarea>
       <div id="checkboxes">
         <label for="ninjas">Ninjas</label>
-        <input type="checkbox" id="ninjas" value="ninjas" v-model="blog.categories">
+        <input type="checkbox" id="ninjas" value="ninjas" v-model="post.categories">
         <label for="wizards">Wizards</label>
-        <input type="checkbox" id="wizards" value="wizards" v-model="blog.categories">
+        <input type="checkbox" id="wizards" value="wizards" v-model="post.categories">
         <label for="mario">Mario</label>
-        <input type="checkbox" id="mario" value="mario" v-model="blog.categories">
+        <input type="checkbox" id="mario" value="mario" v-model="post.categories">
         <label for="cheese">Cheese</label>
-        <input type="checkbox" id="cheese" value="cheese" v-model="blog.categories">
+        <input type="checkbox" id="cheese" value="cheese" v-model="post.categories">
       </div>
       <label for="author">Author:</label>
-      <select id="author" v-model="blog.author">
+      <select id="author" v-model="post.author">
         <option v-for="author in authors" :key="author">{{author}}</option>
       </select>
-      <button @click.prevent="addBlog">Add Blog</button>
+      <button @click.prevent="addPost">Add Post</button>
     </form>
     <div v-if="submitted">
       <h3>Thanks for adding your post</h3>
     </div>
     <div id="preview">
-      <h3>Preview Blog</h3>
-      <p>Blog title: {{blog.title}}</p>
-      <p>Blog content:</p>
-      <p>{{blog.content}}</p>
-      <p>Blog Categories:</p>
+      <h3>Preview Your Post</h3>
+      <p>Post title: {{post.title}}</p>
+      <p>Post content:</p>
+      <p>{{post.content}}</p>
+      <p>Post Categories:</p>
       <ul>
-        <li v-for="category in blog.categories" :key="category">{{category}}</li>
+        <li v-for="category in post.categories" :key="category">{{category}}</li>
       </ul>
-      <p>Author: {{blog.author}}</p>
+      <p>Author: {{post.author}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AddBlog',
+  name: 'AddPost',
   data() {
     return {
-      blog: {
+      post: {
         title: '',
         content: '',
         categories: [],
@@ -55,18 +55,18 @@ export default {
     }
   },
   methods: {
-    addBlog(){
-      this.$http.post('https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts.json', this.blog).then(() => this.submitted = true)
+    addPost(){
+      this.$http.post('https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts.json', this.post).then(() => this.submitted = true)
     },
   }
 }
 </script>
 
 <style scoped>
-#add-blog *{
+#add-post *{
     box-sizing: border-box;
 }
-#add-blog{
+#add-post{
     margin: 20px auto;
     max-width: 500px;
 }

@@ -1,18 +1,18 @@
-import ShowBlogs from './components/ShowBlogs.vue'
-import AddBlog from './components/AddBlog.vue'
-import SingleBlog from './components/SingleBlog.vue'
+import ShowPosts from './components/ShowPosts.vue'
+import AddPost from './components/AddPost.vue'
+import SinglePost from './components/SinglePost.vue'
 
 export default [
   {
     path: '/',
-    component: ShowBlogs,
+    component: ShowPosts,
   },
   {
     path: '/add',
-    component: AddBlog,
+    component: AddPost,
   },
   {
-    path: '/blog/:id',
-    component: SingleBlog,
+    path: '/post/:id',
+    component: SinglePost,
   }
 ]

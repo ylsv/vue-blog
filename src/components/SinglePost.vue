@@ -1,10 +1,10 @@
 <template>
-  <div id="single-blog">
-    <h1>{{blog.title}}</h1>
-    <article>{{blog.content}}</article>
-    <p>Author: {{blog.author}}</p>
+  <div id="single-post">
+    <h1>{{post.title}}</h1>
+    <article>{{post.content}}</article>
+    <p>Author: {{post.author}}</p>
     <ul>
-      <li v-for="category in blog.categories" :key="category">{{category}}</li>
+      <li v-for="category in post.categories" :key="category">{{category}}</li>
     </ul>
   </div>
 </template>
@@ -14,18 +14,18 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      blog: {},
+      post: {},
     }
   },
   async created() {
     const res = await this.$http.get(`https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts/${this.id}.json`)
-    this.blog = res.body
+    this.post = res.body
   }
 }
 </script>
 
 <style scoped>
-#single-blog {
+#single-post {
   max-width: 960px;
   margin: 0 auto;
 }
