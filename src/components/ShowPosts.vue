@@ -56,6 +56,7 @@ export default {
   background: #eee;
 }
 input[type="text"] {
+    box-sizing: border-box;
     display: block;
     width: 100%;
     padding: 8px;

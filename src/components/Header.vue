@@ -22,6 +22,7 @@ a{
     text-decoration: none;
     padding: 6px 8px;
     border-radius: 10px;
+    background: rgba(100, 99, 99, 0.89);
 }
 nav{
     background: #444;
