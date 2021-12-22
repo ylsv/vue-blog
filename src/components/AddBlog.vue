@@ -56,11 +56,7 @@ export default {
   },
   methods: {
     addBlog(){
-      this.$http.post('http://jsonplaceholder.typicode.com/posts', {
-        title: this.blog.title,
-        body: this.blog.content,
-        userId: 1,
-      }).then(() => this.submitted = true)
+      this.$http.post('https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts.json', this.blog).then(() => this.submitted = true)
     },
   }
 }
