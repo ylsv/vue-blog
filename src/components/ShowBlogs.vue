@@ -12,7 +12,7 @@
 <script>
 import searchMixin from '../mixins/searchmixin'
 export default {
-
+  name: 'ShowBlogs',
   data() {
     return {
       blogs: [],
