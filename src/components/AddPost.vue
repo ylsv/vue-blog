@@ -3,9 +3,9 @@
     <h2>Add a New Post</h2>
     <form v-if="!submitted">
       <label for="title">Title:</label>
-      <input type="text" id="title" v-model.lazy="post.title" required>
+      <input type="text" id="title" v-model="post.title" required>
       <label for="post-content">Content:</label>
-      <textarea type="text" id="post-content" v-model.lazy="post.content" required></textarea>
+      <textarea type="text" id="post-content" v-model="post.content" required></textarea>
       <div id="checkboxes">
         <p id="categories">Сategories:</p>
         <label for="love">Love</label>
@@ -22,7 +22,7 @@
         <option disabled value="">Choose post author</option>
         <option v-for="author in authors" :key="author">{{author}}</option>
       </select>
-      <button @click.prevent="addPost">Add Post</button>
+      <button :disabled="!formIsValid" @click.prevent="addPost">Add Post</button>
     </form>
     <div v-if="submitted">
       <h3>Thanks for adding your post</h3>
@@ -56,9 +56,14 @@ export default {
       submitted: false,
     }
   },
+  computed: {
+    formIsValid(){
+      return this.post.title && this.post.content
+    }
+  },
   methods: {
     addPost(){
-      this.$http.post('https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts.json', this.post).then(() => this.submitted = true)
+      if (this.formIsValid) this.$http.post('https://vue-blog-39ce6-default-rtdb.firebaseio.com/posts.json', this.post).then(() => this.submitted = true)
     },
   }
 }
